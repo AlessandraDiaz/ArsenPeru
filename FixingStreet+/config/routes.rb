@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :type_incidences
+
+  resources :type_users
+
   resources :districts
 
   resources :provinces

@@ -1,0 +1,2 @@
+module TypeIncidencesHelper
+end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :incidences
+
   resources :users
 
   resources :condition_incidences

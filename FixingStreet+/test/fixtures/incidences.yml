@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ticket: 1
+  picture: MyString
+  description: MyText
+  reference: MyText
+  date: 2014-09-20 15:02:17
+  latitud: 9.99
+  longitud: 9.99
+
+two:
+  ticket: 1
+  picture: MyString
+  description: MyText
+  reference: MyText
+  date: 2014-09-20 15:02:17
+  latitud: 9.99
+  longitud: 9.99

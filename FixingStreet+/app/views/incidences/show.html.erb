@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ticket:</strong>
+  <%= @incidence.ticket %>
+</p>
+
+<p>
+  <%= image_tag(@incidence.picture_url, width:200) %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @incidence.description %>
+</p>
+
+<p>
+  <strong>Reference:</strong>
+  <%= @incidence.reference %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @incidence.date %>
+</p>
+
+<p>
+  <strong>Latitud:</strong>
+  <%= @incidence.latitud %>
+</p>
+
+<p>
+  <strong>Longitud:</strong>
+  <%= @incidence.longitud %>
+</p>
+
+<%= link_to 'Edit', edit_incidence_path(@incidence) %> |
+<%= link_to 'Back', incidences_path %>

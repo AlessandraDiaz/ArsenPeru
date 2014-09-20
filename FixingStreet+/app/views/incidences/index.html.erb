@@ -1,0 +1,37 @@
+<h1>Listing incidences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ticket</th>
+      <th>Picture</th>
+      <th>Description</th>
+      <th>Reference</th>
+      <th>Date</th>
+      <th>Latitud</th>
+      <th>Longitud</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @incidences.each do |incidence| %>
+      <tr>
+        <td><%= incidence.ticket %></td>
+        <td><%= incidence.picture %></td>
+        <td><%= incidence.description %></td>
+        <td><%= incidence.reference %></td>
+        <td><%= incidence.date %></td>
+        <td><%= incidence.latitud %></td>
+        <td><%= incidence.longitud %></td>
+        <td><%= link_to 'Show', incidence %></td>
+        <td><%= link_to 'Edit', edit_incidence_path(incidence) %></td>
+        <td><%= link_to 'Destroy', incidence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Incidence', new_incidence_path %>

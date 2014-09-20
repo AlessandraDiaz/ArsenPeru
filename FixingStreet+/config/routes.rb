@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  resources :type_incidences
+  resources :users
+
+  resources :condition_incidences
 
   resources :type_users
 
-  resources :districts
+  resources :type_incidences
 
-  resources :provinces
-
-  resources :departments
+  resources :ubigeos
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

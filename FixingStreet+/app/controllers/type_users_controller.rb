@@ -69,6 +69,6 @@ class TypeUsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def type_user_params
-      params.require(:type_user).permit(:name)
+      params.require(:type_user).permit(:name, :status)
     end
 end

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ubigeo.name %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @ubigeo.level %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @ubigeo.code %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @ubigeo.status %>
+</p>
+
+<%= link_to 'Edit', edit_ubigeo_path(@ubigeo) %> |
+<%= link_to 'Back', ubigeos_path %>

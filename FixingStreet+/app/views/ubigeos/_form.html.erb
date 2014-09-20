@@ -1,0 +1,33 @@
+<%= form_for(@ubigeo) do |f| %>
+  <% if @ubigeo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ubigeo.errors.count, "error") %> prohibited this ubigeo from being saved:</h2>
+
+      <ul>
+      <% @ubigeo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :level %><br>
+    <%= f.number_field :level, value:"3" %>
+  </div>
+  <div class="field">
+    <%= f.label :code %><br>
+    <%= f.text_field :code %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.check_box :status, checked:"checked" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<h1>Listing condition_incidences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @condition_incidences.each do |condition_incidence| %>
+      <tr>
+        <td><%= condition_incidence.name %></td>
+        <td><%= condition_incidence.status %></td>
+        <td><%= link_to 'Show', condition_incidence %></td>
+        <td><%= link_to 'Edit', edit_condition_incidence_path(condition_incidence) %></td>
+        <td><%= link_to 'Destroy', condition_incidence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Condition incidence', new_condition_incidence_path %>

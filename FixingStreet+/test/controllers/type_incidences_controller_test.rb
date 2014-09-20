@@ -18,7 +18,7 @@ class TypeIncidencesControllerTest < ActionController::TestCase
 
   test "should create type_incidence" do
     assert_difference('TypeIncidence.count') do
-      post :create, type_incidence: { name: @type_incidence.name }
+      post :create, type_incidence: { name: @type_incidence.name, status: @type_incidence.status }
     end
 
     assert_redirected_to type_incidence_path(assigns(:type_incidence))
@@ -35,7 +35,7 @@ class TypeIncidencesControllerTest < ActionController::TestCase
   end
 
   test "should update type_incidence" do
-    patch :update, id: @type_incidence, type_incidence: { name: @type_incidence.name }
+    patch :update, id: @type_incidence, type_incidence: { name: @type_incidence.name, status: @type_incidence.status }
     assert_redirected_to type_incidence_path(assigns(:type_incidence))
   end
 

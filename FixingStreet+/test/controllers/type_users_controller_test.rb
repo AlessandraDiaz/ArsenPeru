@@ -18,7 +18,7 @@ class TypeUsersControllerTest < ActionController::TestCase
 
   test "should create type_user" do
     assert_difference('TypeUser.count') do
-      post :create, type_user: { name: @type_user.name }
+      post :create, type_user: { name: @type_user.name, status: @type_user.status }
     end
 
     assert_redirected_to type_user_path(assigns(:type_user))
@@ -35,7 +35,7 @@ class TypeUsersControllerTest < ActionController::TestCase
   end
 
   test "should update type_user" do
-    patch :update, id: @type_user, type_user: { name: @type_user.name }
+    patch :update, id: @type_user, type_user: { name: @type_user.name, status: @type_user.status }
     assert_redirected_to type_user_path(assigns(:type_user))
   end
 

@@ -10,36 +10,115 @@
       </ul>
     </div>
   <% end %>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+ 
+<script type='text/javascript'>
+  var map = null;
+  var infoWindow = null;
+ 
+function openInfoWindow(marker) {
+    var markerLatLng = marker.getPosition();
+    infoWindow.setContent([
+        '<strong>La posicion del marcador es:</strong><br/>',
+        markerLatLng.lat(),
+        ', ',
+        markerLatLng.lng(),
+        '<br/>Arrástrame para actualizar la posición.'
+    ].join(''));
+    infoWindow.open(map, marker);
+  document.getElementById("latitud").value = markerLatLng.lat();
+  document.getElementById("longitud").value = markerLatLng.lng();
+}
 
-  <div class="field">
-    <%= f.label :ticket %><br>
-    <%= f.number_field :ticket %>
-  </div>
+function initialize() {
+    var myLatlng = new google.maps.LatLng(-12.1042077,-76.9633519);
+    var myOptions = {
+      zoom: 15,
+      center: myLatlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+ 
+    map = new google.maps.Map($("#map_canvas").get(0), myOptions);
+ 
+    infoWindow = new google.maps.InfoWindow();
+ 
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        draggable: true,
+        map: map,
+        title:"Ejemplo marcador arrastrable"
+    });
+    google.maps.event.addListener(marker, 'dragend', function(){ openInfoWindow(marker); });
+  google.maps.event.addListener(marker, 'click', function(){ openInfoWindow(marker); });
+  
+  
+}
+$(document).ready(function() {
+    initialize();
+    gmaps_ads();
+    });
+</script>
+<style>
+  body{
+  font-family: Helvetica, Arial, sans-serif;
+  margin:1em;
+}
+#map{
+  display: block;
+  width: 500px;
+  height: 400px;
+  margin: 4em auto;
+  -moz-box-shadow: 0px 5px 20px #ccc;
+  -webkit-box-shadow: 0px 5px 20px #ccc;
+  box-shadow: 0px 5px 20px #ccc;
+}
+#map_canvas{
+  display: block;
+  width: 500px;
+  height: 400px;
+  margin: 4em auto;
+  -moz-box-shadow: 0px 5px 20px #ccc;
+  -webkit-box-shadow: 0px 5px 20px #ccc;
+  box-shadow: 0px 5px 20px #ccc;
+}
+  </style>
+<table> 
+  <tr><td>
+    <div class="field">
+    <%= f.label :ticket %><%= f.number_field :ticket %><br>
+    <input class="FrmLabel" type=date name="fecha" size="10" value="2014-09-04">
+    <input class="FrmLabel" type=time name="hora" size="10" value="19:54">
+    </div>
+    </td>
+    <td rowspan="5"><div id="map_canvas"></div></td></tr>
+  <tr><td>
   <div class="field">
     <%= f.label :picture %><br>
     <%= f.file_field :picture %>
   </div>
+  </td></tr>
+  <tr><td>
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
+  </td></tr>
+  <tr><td>
   <div class="field">
     <%= f.label :reference %><br>
     <%= f.text_area :reference %>
   </div>
+  </td></tr>
+  <tr><td>
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.datetime_select :date %>
+    <%= f.label :latitud %> <%= f.text_field :latitud  %><br>
+    <%= f.label :longitud %><%= f.text_field :longitud  %>
   </div>
-  <div class="field">
-    <%= f.label :latitud %><br>
-    <%= f.text_field :latitud %>
-  </div>
-  <div class="field">
-    <%= f.label :longitud %><br>
-    <%= f.text_field :longitud %>
-  </div>
+  </td></tr>
+  </table>
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

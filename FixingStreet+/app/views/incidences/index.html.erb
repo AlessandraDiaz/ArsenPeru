@@ -18,7 +18,7 @@
     <% @incidences.each do |incidence| %>
       <tr>
         <td><%= incidence.ticket %></td>
-        <td><%= incidence.picture %></td>
+        <td><%= image_tag incidence.picture,width:200 %></td>
         <td><%= incidence.description %></td>
         <td><%= incidence.reference %></td>
         <td><%= incidence.date %></td>

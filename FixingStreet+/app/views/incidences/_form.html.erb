@@ -27,8 +27,8 @@ function openInfoWindow(marker) {
         '<br/>Arrástrame para actualizar la posición.'
     ].join(''));
     infoWindow.open(map, marker);
-  document.getElementById("latitud").value = markerLatLng.lat();
-  document.getElementById("longitud").value = markerLatLng.lng();
+  document.getElementById("incidence_latitud").value = markerLatLng.lat();
+  document.getElementById("incidence_longitud").value = markerLatLng.lng();
 }
 
 function initialize() {
@@ -86,7 +86,7 @@ $(document).ready(function() {
 <table> 
   <tr><td>
     <div class="field">
-    <%= f.label :ticket %><%= f.number_field :ticket %><br>
+    <%= f.label :ticket %><%= f.number_field :ticket %> <br>
     <input class="FrmLabel" type=date name="fecha" size="10" value="2014-09-04">
     <input class="FrmLabel" type=time name="hora" size="10" value="19:54">
     </div>
@@ -112,8 +112,8 @@ $(document).ready(function() {
   </td></tr>
   <tr><td>
   <div class="field">
-    <%= f.label :latitud %> <%= f.text_field :latitud  %><br>
-    <%= f.label :longitud %><%= f.text_field :longitud  %>
+    <%= f.label :latitud %> <%= f.text_field :latitud, disabled:"disabled"%><br>
+    <%= f.label :longitud %><%= f.text_field :longitud, disabled:"disabled" %>
   </div>
   </td></tr>
   </table>

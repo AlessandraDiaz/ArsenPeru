@@ -28,7 +28,7 @@ class TypeIncidencesController < ApplicationController
 
     respond_to do |format|
       if @type_incidence.save
-        format.html { redirect_to @type_incidence, notice: 'Type incidence was successfully created.' }
+        format.html { redirect_to @type_incidence, notice: 'Tipo incidencia creado exitosamente' }
         format.json { render :show, status: :created, location: @type_incidence }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class TypeIncidencesController < ApplicationController
   def update
     respond_to do |format|
       if @type_incidence.update(type_incidence_params)
-        format.html { redirect_to @type_incidence, notice: 'Type incidence was successfully updated.' }
+        format.html { redirect_to @type_incidence, notice: 'Tipo incidencia actualizada exitosamente' }
         format.json { render :show, status: :ok, location: @type_incidence }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class TypeIncidencesController < ApplicationController
   def destroy
     @type_incidence.destroy
     respond_to do |format|
-      format.html { redirect_to type_incidences_url, notice: 'Type incidence was successfully destroyed.' }
+      format.html { redirect_to type_incidences_url, notice: 'Tipo incidencia eliminada exitosamente' }
       format.json { head :no_content }
     end
   end

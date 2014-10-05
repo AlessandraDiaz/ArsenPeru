@@ -27,8 +27,8 @@ function openInfoWindow(marker) {
         '<br/>Arrástrame para actualizar la posición.'
     ].join(''));
     infoWindow.open(map, marker);
-  document.getElementById("latitud").value = markerLatLng.lat();
-  document.getElementById("longitud").value = markerLatLng.lng();
+  document.getElementById("incidence_latitud").value = markerLatLng.lat();
+  document.getElementById("incidence_longitud").value = markerLatLng.lng();
 }
 
 function initialize() {

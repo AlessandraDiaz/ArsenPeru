@@ -1,15 +1,31 @@
 Rails.application.routes.draw do
-  resources :incidences
+  #FacebookAuthExample::Application.routes.draw do
+    get 'auth/:provider/callback', to: 'sessions#create'
+    get 'auth/failure', to: redirect('/')
+    get 'signout', to: 'sessions#destroy', as: 'signout'
 
-  resources :users
+    resources :sessions, only: [:create, :destroy]
+    resource :home, only: [:show]
+      #resources :users
 
-  resources :condition_incidences
+    resources :condition_incidences
+    resources :type_users
+    resources :type_incidences
+    resources :ubigeos
+    resources :incidences
+    root to: "home#show"
 
-  resources :type_users
+end
 
-  resources :type_incidences
+  #get 'sessions/create'
 
-  resources :ubigeos
+  #get 'sessions/destroy'
+
+  #get 'home/show'
+
+  
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -65,4 +81,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+

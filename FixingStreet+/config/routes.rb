@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :type_incidences
     resources :ubigeos
     resources :incidences
-    root to: "home#show"
+    root to: "incidences#index"
 
 end
 

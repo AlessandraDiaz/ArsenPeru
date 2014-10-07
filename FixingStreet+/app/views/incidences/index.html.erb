@@ -1,13 +1,13 @@
-<h1>Listing incidences</h1>
-
+<h1>Incidencias</h1>
+<div><%= will_paginate @incidences %></div>
 <table>
   <thead>
     <tr>
       <th>Ticket</th>
-      <th>Picture</th>
-      <th>Description</th>
-      <th>Reference</th>
-      <th>Date</th>
+      <th>foto</th>
+      <th>Descripcion</th>
+      <th>Referencia</th>
+      <th>Fecha y hora</th>
       <th>Latitud</th>
       <th>Longitud</th>
       <th colspan="3"></th>
@@ -17,21 +17,19 @@
   <tbody>
     <% @incidences.each do |incidence| %>
       <tr>
-        <td><%= incidence.ticket %></td>
+        <td><%= incidence.id %></td>
         <td><%= image_tag incidence.picture,width:200 %></td>
         <td><%= incidence.description %></td>
         <td><%= incidence.reference %></td>
-        <td><%= incidence.date %></td>
+        <td><%= incidence.created_at %></td>
         <td><%= incidence.latitud %></td>
         <td><%= incidence.longitud %></td>
-        <td><%= link_to 'Show', incidence %></td>
-        <td><%= link_to 'Edit', edit_incidence_path(incidence) %></td>
-        <td><%= link_to 'Destroy', incidence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', incidence %></td>
+        <td><%= link_to 'Editar', edit_incidence_path(incidence) %></td>
+        <td><%= link_to 'Eliminar', incidence, method: :delete, data: { confirm: 'Esta seguro en eliminar la incidencia?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Incidence', new_incidence_path %>

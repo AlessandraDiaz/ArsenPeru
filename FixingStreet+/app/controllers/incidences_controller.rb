@@ -4,7 +4,9 @@ class IncidencesController < ApplicationController
   # GET /incidences
   # GET /incidences.json
   def index
-    @incidences = Incidence.all
+    #@incidences = Incidence.all
+    @incidences = Incidence.all.paginate(page: params[:page], per_page: 2)
+    
   end
 
   # GET /incidences/1
@@ -28,7 +30,7 @@ class IncidencesController < ApplicationController
 
     respond_to do |format|
       if @incidence.save
-        format.html { redirect_to @incidence, notice: 'Incidence was successfully created.' }
+        format.html { redirect_to @incidence, notice: 'Incidencia creada exitosamente.' }
         format.json { render :show, status: :created, location: @incidence }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class IncidencesController < ApplicationController
   def update
     respond_to do |format|
       if @incidence.update(incidence_params)
-        format.html { redirect_to @incidence, notice: 'Incidence was successfully updated.' }
+        format.html { redirect_to @incidence, notice: 'Incidencia actualizada exitosamente.' }
         format.json { render :show, status: :ok, location: @incidence }
       else
         format.html { render :edit }
@@ -56,7 +58,7 @@ class IncidencesController < ApplicationController
   def destroy
     @incidence.destroy
     respond_to do |format|
-      format.html { redirect_to incidences_url, notice: 'Incidence was successfully destroyed.' }
+      format.html { redirect_to incidences_url, notice: 'Incidencia eliminada exitosamente.' }
       format.json { head :no_content }
     end
   end

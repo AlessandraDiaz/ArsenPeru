@@ -2,7 +2,7 @@
 
 <p>
   <strong>Ticket:</strong>
-  <%= @incidence.ticket %>
+  <%= @incidence.id %>
 </p>
 
 <p>
@@ -10,18 +10,18 @@
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Descripcion:</strong>
   <%= @incidence.description %>
 </p>
 
 <p>
-  <strong>Reference:</strong>
+  <strong>Referencia:</strong>
   <%= @incidence.reference %>
 </p>
 
 <p>
-  <strong>Date:</strong>
-  <%= @incidence.date %>
+  <strong>Fecha y hora:</strong>
+  <%= @incidence.created_at %>
 </p>
 
 <p>
@@ -34,5 +34,5 @@
   <%= @incidence.longitud %>
 </p>
 
-<%= link_to 'Edit', edit_incidence_path(@incidence) %> |
-<%= link_to 'Back', incidences_path %>
+<%= link_to 'Editar', edit_incidence_path(@incidence) %> |
+<%= link_to 'Atras', incidences_path %>

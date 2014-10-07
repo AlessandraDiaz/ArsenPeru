@@ -10,10 +10,11 @@
 
 <div>
   <% if current_user %>
-    Signed in as <strong><%= current_user.name %></strong>!
-    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+    Nombre: <strong><%= current_user.name %></strong>
+    <%= link_to 'Nueva incidencia', new_incidence_path %>
+    <%= link_to "Cerrar sesion", signout_path, id: "sign_out" %>
   <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+    <%= link_to "Iniciar sesion con Facebook", "/auth/facebook", id: "sign_in" %>
   <% end %>
 </div>
 

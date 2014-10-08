@@ -1,16 +1,20 @@
 Rails.application.routes.draw do
+  resources :motives
+
+  resources :types
+
   #FacebookAuthExample::Application.routes.draw do
+  resources :motives
+
+
     get 'auth/:provider/callback', to: 'sessions#create'
     get 'auth/failure', to: redirect('/')
     get 'signout', to: 'sessions#destroy', as: 'signout'
 
     resources :sessions, only: [:create, :destroy]
-    resource :home, only: [:show]
-      #resources :users
+    resources :home
 
     resources :condition_incidences
-    resources :type_users
-    resources :type_incidences
     resources :ubigeos
     resources :incidences
     root to: "incidences#index"

@@ -4,9 +4,8 @@ class IncidencesController < ApplicationController
   # GET /incidences
   # GET /incidences.json
   def index
-    #@incidences = Incidence.all
-    @incidences = Incidence.all.paginate(page: params[:page], per_page: 2)
-    
+   @incidences = Incidence.all.paginate(page: params[:page], per_page: 2)
+
   end
 
   # GET /incidences/1
@@ -71,6 +70,6 @@ class IncidencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def incidence_params
-      params.require(:incidence).permit(:ticket, :picture, :description, :reference, :date, :latitud, :longitud)
+      params.require(:incidence).permit(:ticket, :type_id, :picture, :motive_id, :description,:ubigeo_id, :reference, :date, :latitud, :longitud)
     end
 end

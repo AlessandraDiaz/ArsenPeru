@@ -4,8 +4,11 @@
   <thead>
     <tr>
       <th>Ticket</th>
+      <th>Tipo</th>
       <th>foto</th>
+      <th>Motivo</th>
       <th>Descripcion</th>
+      <th>Distrito</th>
       <th>Referencia</th>
       <th>Fecha y hora</th>
       <th>Latitud</th>
@@ -18,8 +21,11 @@
     <% @incidences.each do |incidence| %>
       <tr>
         <td><%= incidence.id %></td>
+        <td><%= incidence.type.name %></td>
         <td><%= image_tag incidence.picture,width:200 %></td>
+        <td><%= incidence.motive.name %></td>
         <td><%= incidence.description %></td>
+        <td><%= incidence.ubigeo.name %></td>
         <td><%= incidence.reference %></td>
         <td><%= incidence.created_at %></td>
         <td><%= incidence.latitud %></td>

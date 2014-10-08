@@ -91,6 +91,12 @@ $(document).ready(function() {
     </div>
     </td>
     <td rowspan="5"><div id="map_canvas"></div></td></tr>
+        <tr><td>
+  <div class="field">
+    <%= f.label :tipo %><br>
+    <%= f.collection_select :type_id, Type.all, :id, :name, prompt: true %>
+  </div>
+  </td></tr>
   <tr><td>
   <div class="field">
     <%= f.label :Foto %><br>
@@ -99,8 +105,20 @@ $(document).ready(function() {
   </td></tr>
   <tr><td>
   <div class="field">
+    <%= f.label :Motivo %><br>
+    <%= f.collection_select :motive_id, Motive.all, :id, :name, prompt: true %>
+  </div>
+  </td></tr>
+  <tr><td>
+  <div class="field">
     <%= f.label :descripcion %><br>
     <%= f.text_area :description %>
+  </div>
+  </td></tr>
+    <tr><td>
+  <div class="field">
+    <%= f.label :distrito %><br>
+    <%= f.collection_select :ubigeo_id, Ubigeo.all, :id, :name, prompt: true %>
   </div>
   </td></tr>
   <tr><td>

@@ -4,16 +4,25 @@
   <strong>Ticket:</strong>
   <%= @incidence.id %>
 </p>
-
+<p>
+  <strong>Tipo Usuario:</strong>
+  <%= @incidence.type.name %>
+</p>
 <p>
   <%= image_tag(@incidence.picture_url, width:200) %>
 </p>
-
+<p>
+  <strong>Motivo:</strong>
+  <%= @incidence.motive.name %>
+</p>
 <p>
   <strong>Descripcion:</strong>
   <%= @incidence.description %>
 </p>
-
+<p>
+  <strong>Distrito:</strong>
+  <%= @incidence.ubigeo.name %>
+</p>
 <p>
   <strong>Referencia:</strong>
   <%= @incidence.reference %>

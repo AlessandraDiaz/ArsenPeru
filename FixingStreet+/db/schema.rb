@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141005220443) do
+ActiveRecord::Schema.define(version: 20141007171451) do
 
   create_table "condition_incidences", force: true do |t|
     t.string   "name"
@@ -30,16 +30,19 @@ ActiveRecord::Schema.define(version: 20141005220443) do
     t.decimal  "longitud"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "ubigeo_id"
+    t.integer  "type_id"
+    t.integer  "motive_id"
   end
 
-  create_table "type_incidences", force: true do |t|
+  create_table "motives", force: true do |t|
     t.string   "name"
     t.boolean  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "type_users", force: true do |t|
+  create_table "types", force: true do |t|
     t.string   "name"
     t.boolean  "status"
     t.datetime "created_at"

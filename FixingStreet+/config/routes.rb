@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :condition_incidences
     resources :ubigeos
     resources :incidences
-    root to: "incidences#index"
+    root to: "home#index"
 
 end
 

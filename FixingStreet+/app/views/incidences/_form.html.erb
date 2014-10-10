@@ -75,12 +75,8 @@ $(document).ready(function() {
 }
 #map_canvas{
   display: block;
-  width: 500px;
-  height: 400px;
-  margin: 4em auto;
-  -moz-box-shadow: 0px 5px 20px #ccc;
-  -webkit-box-shadow: 0px 5px 20px #ccc;
-  box-shadow: 0px 5px 20px #ccc;
+  width: 600px;
+  height: 350px;
 }
   </style>
 <table> 
@@ -89,50 +85,35 @@ $(document).ready(function() {
     <input class="FrmLabel" type=date name="fecha" size="10" value="2014-09-12">
     <input class="FrmLabel" type=time name="hora" size="10" value="19:54">
     </div>
-    </td>
-    <td rowspan="5"><div id="map_canvas"></div></td></tr>
-        <tr><td>
   <div class="field">
-    <%= f.label :tipo %><br>
-    <%= f.collection_select :type_id, Type.all, :id, :name, prompt: true %>
+    <%= f.label :tipo %>
+    <%= f.collection_select :type_id, Type.all, :id, :name, prompt: true %><br>
   </div>
-  </td></tr>
-  <tr><td>
   <div class="field">
-    <%= f.label :Foto %><br>
-    <%= f.file_field :picture %>
+    <%= f.label :Foto %>
+    <%= f.file_field :picture %><br>
   </div>
-  </td></tr>
-  <tr><td>
   <div class="field">
-    <%= f.label :Motivo %><br>
-    <%= f.collection_select :motive_id, Motive.all, :id, :name, prompt: true %>
+    <%= f.label :Motivo %>
+    <%= f.collection_select :motive_id, Motive.all, :id, :name, prompt: true %><br>
   </div>
-  </td></tr>
-  <tr><td>
   <div class="field">
-    <%= f.label :descripcion %><br>
-    <%= f.text_area :description %>
+    <%= f.label :descripcion %>
+    <%= f.text_area :description %><br>
   </div>
-  </td></tr>
-    <tr><td>
   <div class="field">
-    <%= f.label :distrito %><br>
-    <%= f.collection_select :ubigeo_id, Ubigeo.all, :id, :name, prompt: true %>
+    <%= f.label :distrito %>
+    <%= f.collection_select :ubigeo_id, Ubigeo.all, :id, :name, prompt: true %><br>
   </div>
-  </td></tr>
-  <tr><td>
   <div class="field">
-    <%= f.label :referencia %><br>
-    <%= f.text_area :reference %>
+    <%= f.label :referencia %>
+    <%= f.text_area :reference %><br>
   </div>
-  </td></tr>
-  <tr><td>
   <div class="field">
-    <%= f.label :latitud %> <%= f.text_field :latitud  %><br>
-    <%= f.label :longitud %><%= f.text_field :longitud  %>
-  </div>
-  </td></tr>
+    <%= f.label :latitud %> <%= f.text_field :latitud, readonly: true %><br>
+    <%= f.label :longitud %><%= f.text_field :longitud, readonly: true  %>
+  </div><td>
+  <td><div id="map_canvas"></div></td></tr>
   </table>
   <div class="actions">
     <%= f.submit %>

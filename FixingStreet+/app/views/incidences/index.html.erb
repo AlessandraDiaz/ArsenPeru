@@ -1,4 +1,5 @@
 <h1>Incidencias</h1>
+
 <div><%= will_paginate @incidences %></div>
 <table>
   <thead>
@@ -11,8 +12,6 @@
       <th>Distrito</th>
       <th>Referencia</th>
       <th>Fecha y hora</th>
-      <th>Latitud</th>
-      <th>Longitud</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -28,11 +27,12 @@
         <td><%= incidence.ubigeo.name %></td>
         <td><%= incidence.reference %></td>
         <td><%= incidence.created_at %></td>
-        <td><%= incidence.latitud %></td>
-        <td><%= incidence.longitud %></td>
+
         <td><%= link_to 'Ver', incidence %></td>
-        <td><%= link_to 'Editar', edit_incidence_path(incidence) %></td>
-        <td><%= link_to 'Eliminar', incidence, method: :delete, data: { confirm: 'Esta seguro en eliminar la incidencia?' } %></td>
+		<% if current_user %>
+	       <td><%= link_to 'Editar', edit_incidence_path(incidence) %></td>
+           <td><%= link_to 'Eliminar', incidence, method: :delete, data: { confirm: 'Esta seguro en eliminar la incidencia?' } %></td>
+		<% end %>	
       </tr>
     <% end %>
   </tbody>

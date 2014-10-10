@@ -11,6 +11,7 @@ class IncidencesController < ApplicationController
   # GET /incidences/1
   # GET /incidences/1.json
   def show
+ 
   end
 
   # GET /incidences/new

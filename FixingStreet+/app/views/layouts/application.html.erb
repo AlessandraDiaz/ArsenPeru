@@ -6,19 +6,107 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+	<body class="home">
 
-<div>
-  <% if current_user %>
-    Nombre: <strong><%= current_user.name %></strong>
-    <%= link_to 'Nueva incidencia', new_incidence_path %>
-    <%= link_to "Cerrar sesion", signout_path, id: "sign_out" %>
-  <% else %>
-    <%= link_to "Iniciar sesion con Facebook", "/auth/facebook", id: "sign_in" %>
-  <% end %>
+<!-- HEADER -->
+<div id="header">
+	<!-- wrapper-header -->
+	<div class="wrapper">
+	<table border="0" font-size: 0%;>
+		<tr>
+			<td valign="middle">
+			   <%= link_to(image_tag("img/logo.png", :alt => "FixingStreet+", :title => "FixingStreet+"), "localhost:3000") %>
+			</td>
+			<td valign="middle">
+			   <% if current_user %><font color="turquoise">
+			      Bienvenido: <strong><%= current_user.name %></strong><br>
+			   	  <%= link_to "Cerrar sesion", signout_path, id: "sign_out" %></font>
+			   <% else %>
+			   	  <%= link_to "Iniciar sesion con Facebook", "/auth/facebook", id: "sign_in" %>
+			   <% end %>
+			</td>
+		</tr>
+	</table>
+    </div>	
 </div>
+<!-- ENDS HEADER -->
 
+<!-- Menu -->
+<div id="menu">
+	<!-- ENDS menu-holder -->
+	<div id="menu-holder">
+		<!-- wrapper-menu -->
+		<div class="wrapper">
+			<!-- Navigation -->
+			<ul id="nav" class="sf-menu">
+				<li class="current-menu-item">
+				   <a href="http://localhost:3000">Monitoreo</a>
+				</li>
+				<li class="current-menu-item">
+				   <a href="http://localhost:3000/incidences">Incidencias</a>
+				</li>
+				<li class="current-menu-item">
+					<% if current_user %><%= link_to 'Registro', new_incidence_path %><% end %>	
+				</li><% if current_user %>
+				<li class="current-menu-item"><a>Administrador<a>
+					<ul>
+					    <a href="http://localhost:3000/ubigeos"><span> Distritos</span></a>
+            			<a href="http://localhost:3000/motives"><span> Motivo Incidencia </span></a>
+            			<a href="http://localhost:3000/types"><span> Tipo usuario </span></a>
+					</ul>
+					<% end %>
+				</li>
+<!--				<li><a href="contact.html">Contactenos<span class="subheader">¿Interesado?</span></a></li>  -->
+			</ul>
+			<!-- Navigation -->
+		</div>
+		<!-- wrapper-menu -->
+	</div>
+	<!-- ENDS menu-holder -->
+</div>
+<!-- ENDS Menu -->
+<div class="wrapper">
 <%= yield %>
+</div>
+<!-- FOOTER -->
+<div id="footer">
+	<!-- wrapper-footer -->
+	<div class="wrapper">
+		<!-- footer-cols -->
+		<ul id="footer-cols">
+	<!--		<li class="col">
+				<h6>Pages</h6>
+				<ul>
+					<li class="page_item"><a href="index.html">Home</a></li>
+					<li class="page_item"><a href="features.html">Features</a></li>
+					<li class="page_item"><a href="blog.html">Blog</a></li>
+					<li class="page_item"><a href="portfolio.html">Portfolio</a></li>
+					<li class="page_item"><a href="gallery.html">Gallery</a></li>
+					<li class="page_item"><a href="contact.html">Contact</a></li>
+				</ul>
+			</li>  -->
+			<li class="col1">
+				<h6>Acerca de FixingStreet+</h6>
+				En la actualidad las tecnologías de información se encuentran evolucionando y mejorando procesos de negocio y actividades cotidianas de las personas, las cuales se encuentran cada vez familiarizadas con el uso de dispositivos tecnológicos que se comuniquen entre ellos. El empleo de internet ha permitido que la información sea compartida entre los usuarios en tiempo real y con ello, el desarrollo de aplicaciones web ha permitido interaccionar con los servicios y datos que se brindan y viajan en la red de redes que los usuarios necesiten gestionar o manejar. FixingStreet+ es el proyecto de aplicación web que se expondrá en el presente trabajo. Esta aplicación permitirá a los usuarios registrar incidencias del día a día desde distintos puntos de la ciudad de Lima Metropolitana y poder compartir estos incidentes de la ciudad con los diferentes usuarios de la aplicación. Además, la información obtenida permitirá crear estadísticas de alta relevancia para las autoridades y estás tomen las medidas pertinentes en favor de mejoras y bienestar de la ciudadanía en diversos puntos de Lima, respecto en temas de seguridad, infraestructura, etc.
+			</li>
+			
+		</ul>
+		<!-- ENDS footer-cols -->
+	</div>
+	<!-- ENDS wrapper-footer -->
+</div>
+<!-- ENDS FOOTER -->
+
+<!-- Bottom -->
+<div id="bottom">
+	<!-- wrapper-bottom -->
+	<div class="wrapper">
+		<div id="bottom-text">2014 Arsen Peru Todos los Derechos Reservados. <a href="http://localhost/arsenperu/"> ArsenPeru.com</a> </div>
+      	<div id="to-top" class="poshytip" title="To top"></div>
+	</div>
+	<!-- ENDS wrapper-bottom -->
+</div>
+<!-- ENDS Bottom -->
 
 </body>
 </html>
